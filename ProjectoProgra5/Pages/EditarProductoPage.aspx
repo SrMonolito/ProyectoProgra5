@@ -10,9 +10,7 @@
             <span>Identificador del Producto</span>
             <asp:TextBox ID="TxtIdProducto" runat="server" CssClass="form-control"
                 Style="margin-top: 5px; margin-bottom: 5px;" Enabled="False"></asp:TextBox>
-            <asp:RequiredFieldValidator ID="rfvId" runat="server"
-                ControlToValidate="TxtIdProducto"
-                ErrorMessage="Esta casilla no puede quedar vacia"></asp:RequiredFieldValidator>
+
         </div>
         <div>
             <span>Nombre del Producto</span>
@@ -29,6 +27,10 @@
             <asp:RequiredFieldValidator ID="rfvModelo" runat="server"
                 ControlToValidate="TxtidModelo"
                 ErrorMessage="Esta casilla no puede quedar vacia"></asp:RequiredFieldValidator>
+            <asp:RegularExpressionValidator ID="RevModeloformat" runat="server"
+                ControlToValidate="TxtidModelo"
+                ErrorMessage="Por favor ingrese un identificador valido"
+                ValidationExpression="\d+"></asp:RegularExpressionValidator>
         </div>
         <div>
             <span>Marca</span>
@@ -41,6 +43,10 @@
             <asp:RequiredFieldValidator ID="rfvCantidad" runat="server"
                 ControlToValidate="TxtCantidad"
                 ErrorMessage="Esta casilla no puede quedar vacia"></asp:RequiredFieldValidator>
+            <asp:RegularExpressionValidator ID="RevCantidadformat" runat="server"
+                ControlToValidate="TxtCantidad"
+                ErrorMessage="Por favor ingrese una cantidad valida"
+                ValidationExpression="\d+"></asp:RegularExpressionValidator>
         </div>
         <div>
             <span>Precio por Unidad</span>
@@ -49,6 +55,10 @@
             <asp:RequiredFieldValidator ID="rfvPrecioU" runat="server"
                 ControlToValidate="TxtPrecioU"
                 ErrorMessage="Esta casilla no puede quedar vacia"></asp:RequiredFieldValidator>
+            <asp:RegularExpressionValidator ID="RevPrecioUnitformat" runat="server"
+                ControlToValidate="TxtPrecioU"
+                ErrorMessage="Por favor ingrese un Precio Valido"
+                ValidationExpression="\d+"></asp:RegularExpressionValidator>
         </div>
 
         <div>

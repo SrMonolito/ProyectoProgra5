@@ -24,6 +24,15 @@ namespace ProjectoProgra5.Pages
         protected global::System.Web.UI.WebControls.TextBox TxtNombre;
 
         /// <summary>
+        /// rfvNombre control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvNombre;
+
+        /// <summary>
         /// TxtApellidos control.
         /// </summary>
         /// <remarks>
@@ -31,6 +40,15 @@ namespace ProjectoProgra5.Pages
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TxtApellidos;
+
+        /// <summary>
+        /// rfvApellidos control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvApellidos;
 
         /// <summary>
         /// TxtCedula control.
@@ -42,6 +60,24 @@ namespace ProjectoProgra5.Pages
         protected global::System.Web.UI.WebControls.TextBox TxtCedula;
 
         /// <summary>
+        /// rfvCedula control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvCedula;
+
+        /// <summary>
+        /// RevCedulaformat control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RevCedulaformat;
+
+        /// <summary>
         /// TxtTelefono control.
         /// </summary>
         /// <remarks>
@@ -49,6 +85,24 @@ namespace ProjectoProgra5.Pages
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TxtTelefono;
+
+        /// <summary>
+        /// rfvTelefono control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvTelefono;
+
+        /// <summary>
+        /// RevTelefonoformat control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RevTelefonoformat;
 
         /// <summary>
         /// BtnGuardar control.

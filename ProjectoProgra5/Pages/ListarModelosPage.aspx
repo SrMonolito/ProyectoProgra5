@@ -10,6 +10,10 @@
         <div>
             <asp:TextBox ID="TxtId" runat="server" CssClass="form-control"
                 Style="margin-top: 5px; margin-bottom: 5px;"></asp:TextBox>
+            <asp:RegularExpressionValidator ID="RevModeloformat" runat="server"
+                ControlToValidate="TxtId"
+                ErrorMessage="Por favor ingrese un identificador valido"
+                ValidationExpression="\d+"></asp:RegularExpressionValidator>
         </div>
 
         <asp:Button ID="BtnBuscarporid" runat="server" Text="Buscar" Style="margin-top: 5px; margin-bottom: 5px;"

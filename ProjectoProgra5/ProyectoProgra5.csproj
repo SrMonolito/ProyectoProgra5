@@ -145,6 +145,7 @@
     <Content Include="Pages\EditarClientePage.aspx" />
     <Content Include="Pages\EditarModeloPage.aspx" />
     <Content Include="Pages\EditarProductoPage.aspx" />
+    <Content Include="Pages\Error.aspx" />
     <Content Include="Pages\ExitoPage.aspx" />
     <Content Include="Pages\GuardarClientePage.aspx" />
     <Content Include="Pages\GuardarMarcaPage.aspx" />
@@ -274,6 +275,12 @@
     <Compile Include="DBContext\SP_Buscar_Venta_por_id_Result1.cs">
       <DependentUpon>DBContext.tt</DependentUpon>
     </Compile>
+    <Compile Include="DBContext\sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>DBContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBContext\sp_helpdiagrams_Result.cs">
+      <DependentUpon>DBContext.tt</DependentUpon>
+    </Compile>
     <Compile Include="DBContext\SP_Listar_Clientes_Result.cs">
       <DependentUpon>DBContext.tt</DependentUpon>
     </Compile>
@@ -331,6 +338,13 @@
     </Compile>
     <Compile Include="Pages\EditarProductoPage.aspx.designer.cs">
       <DependentUpon>EditarProductoPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Error.aspx.cs">
+      <DependentUpon>Error.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Error.aspx.designer.cs">
+      <DependentUpon>Error.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\ExitoPage.aspx.cs">
       <DependentUpon>ExitoPage.aspx</DependentUpon>

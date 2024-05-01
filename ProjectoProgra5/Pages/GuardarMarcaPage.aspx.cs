@@ -16,12 +16,14 @@ namespace ProjectoProgra5.Pages
         }
         protected void BtnGuardar_Click(object sender, EventArgs e)
         {
+            
             try
-            {
+            {   //llamamos a la concexion con la base de datos
                 using (ProyectoProgra5Entities db = new ProyectoProgra5Entities())
                 {
+                    //guardamos los datos de la marca en una variable
                     string nombre = TxtNombre.Text;
-
+                    //pasamos los datos mediante 
                     db.SP_Guardar_Marca(nombre);
                 }
                 Response.Redirect("~/Pages/ExitoPage.aspx");
@@ -29,7 +31,7 @@ namespace ProjectoProgra5.Pages
             catch (Exception)
             {
 
-                throw;
+                Response.Redirect("~/Pages/Error.aspx");
             }
         }
 

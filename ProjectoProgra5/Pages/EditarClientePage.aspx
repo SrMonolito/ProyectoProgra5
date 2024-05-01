@@ -7,7 +7,7 @@
     <div>
         <div>
             <span>Identificador del Cliente</span>
-            <asp:TextBox ID="TxtId" runat="server" CssClass="form-control"></asp:TextBox>
+            <asp:TextBox ID="TxtId" runat="server" CssClass="form-control" Enabled="False"></asp:TextBox>
             <asp:RequiredFieldValidator ID="rfvId" runat="server"
                 ControlToValidate="TxtId"
                 ErrorMessage="Esta casilla no puede quedar vacia"></asp:RequiredFieldValidator>
@@ -32,6 +32,10 @@
             <asp:RequiredFieldValidator ID="rfvCedula" runat="server"
                 ControlToValidate="TxtCedula"
                 ErrorMessage="Esta casilla no puede quedar vacia"></asp:RequiredFieldValidator>
+            <asp:RegularExpressionValidator ID="RevCedulaformat" runat="server"
+                ControlToValidate="TxtTelefono"
+                ErrorMessage="Por favor ingrese una cedula valida"
+                ValidationExpression="\d+"></asp:RegularExpressionValidator>
         </div>
         <div>
             <span>Telefono del Cliente</span>
@@ -39,6 +43,10 @@
             <asp:RequiredFieldValidator ID="rfvTelefono" runat="server"
                 ControlToValidate="TxtTelefono"
                 ErrorMessage="Esta casilla no puede quedar vacia"></asp:RequiredFieldValidator>
+            <asp:RegularExpressionValidator ID="RevTelefonoformat" runat="server"
+                ControlToValidate="TxtTelefono"
+                ErrorMessage="Por favor ingrese un numero valido"
+                ValidationExpression="\d+"></asp:RegularExpressionValidator>
         </div>
         <div>
             <asp:Button ID="BtnGuardar" runat="server" Text="Guardar" CssClass="btn btn-primary"

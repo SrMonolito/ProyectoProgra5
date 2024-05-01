@@ -24,13 +24,13 @@ namespace ProjectoProgra5.Pages
         protected global::System.Web.UI.WebControls.TextBox TxtProductoNombre;
 
         /// <summary>
-        /// rfvNombreProducto control.
+        /// rfvProductoNombre control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvNombreProducto;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvProductoNombre;
 
         /// <summary>
         /// TxtidModelo control.
@@ -42,13 +42,22 @@ namespace ProjectoProgra5.Pages
         protected global::System.Web.UI.WebControls.TextBox TxtidModelo;
 
         /// <summary>
-        /// rfvModelo control.
+        /// RequiredFieldValidator1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvModelo;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
+
+        /// <summary>
+        /// RevModeloformat control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RevModeloformat;
 
         /// <summary>
         /// DdLMarcas control.
@@ -78,6 +87,15 @@ namespace ProjectoProgra5.Pages
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvCantidad;
 
         /// <summary>
+        /// RevCantidadformat control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RevCantidadformat;
+
+        /// <summary>
         /// TxtPrecioU control.
         /// </summary>
         /// <remarks>
@@ -87,13 +105,22 @@ namespace ProjectoProgra5.Pages
         protected global::System.Web.UI.WebControls.TextBox TxtPrecioU;
 
         /// <summary>
-        /// rfvPrecioUnidad control.
+        /// rfvPrecioU control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvPrecioUnidad;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvPrecioU;
+
+        /// <summary>
+        /// RevPrecioUnitformat control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RevPrecioUnitformat;
 
         /// <summary>
         /// BtnGuardar control.

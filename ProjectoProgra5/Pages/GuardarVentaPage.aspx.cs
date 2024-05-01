@@ -33,6 +33,12 @@ namespace ProjectoProgra5.Pages
 
             try
             {
+                //llamamos al procedimiento para hacer la insercion en tbl_venta
+                using (ProyectoProgra5Entities db = new ProyectoProgra5Entities())
+                {
+                    db.SP_Guardar_Venta(idcliente, Fecha);
+                }
+
                 //hacemos que el foreach recorra las filas del gridview
                 foreach (GridViewRow fila in GvListaProductos.Rows)
                 {
@@ -46,7 +52,7 @@ namespace ProjectoProgra5.Pages
                         int cantidadcomprada = Convert.ToInt32(cantidad.Text);
                         using (ProyectoProgra5Entities db = new ProyectoProgra5Entities())
                         {
-                            db.SP_Guardar_Venta(idcliente, Fecha, idproducto, cantidadcomprada);
+                            db.SP_Guardar_Detalles_Venta(idproducto, cantidadcomprada);
                         }
                     }
                 }
@@ -56,7 +62,7 @@ namespace ProjectoProgra5.Pages
             catch (Exception)
             {
 
-                throw;
+                Response.Redirect("~/Pages/Error.aspx");
             }
         }
         //Funcion para cargar los Clientes en el DropdownList
@@ -89,7 +95,7 @@ namespace ProjectoProgra5.Pages
             catch (Exception)
             {
 
-                throw;
+                Response.Redirect("~/Pages/Error.aspx");
             }
         }
 
@@ -110,7 +116,7 @@ namespace ProjectoProgra5.Pages
             catch (Exception)
             {
 
-                throw;
+                Response.Redirect("~/Pages/Error.aspx");
             }
 
         }

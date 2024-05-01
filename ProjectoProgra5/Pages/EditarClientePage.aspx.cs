@@ -31,11 +31,12 @@ namespace ProjectoProgra5.Pages
                     int cedula = Convert.ToInt32(TxtCedula.Text);
                     db.SP_Editar_Cliente(id, nombre, apellidos,cedula, telefono);
                 }
+                Response.Redirect("~/Pages/ExitoPage.aspx");
             }
             catch (Exception)
             {
 
-                throw;
+                Response.Redirect("~/Pages/Error.aspx");
             }
         }
 

@@ -51,7 +51,7 @@ namespace ProjectoProgra5.Pages
             catch (Exception)
             {
 
-                throw;
+                Response.Redirect("~/Pages/Error.aspx");
             }
         }
         //Funcion para cargar la informacion de las ventas en el gridview
@@ -70,7 +70,7 @@ namespace ProjectoProgra5.Pages
             catch (Exception)
             {
 
-                throw;
+                Response.Redirect("~/Pages/Error.aspx");
             }
         }
 

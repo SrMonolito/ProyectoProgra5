@@ -87,6 +87,15 @@ namespace ProjectoProgra5.Pages
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvCedula;
 
         /// <summary>
+        /// RevCedulaformat control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RevCedulaformat;
+
+        /// <summary>
         /// TxtTelefono control.
         /// </summary>
         /// <remarks>
@@ -103,6 +112,15 @@ namespace ProjectoProgra5.Pages
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvTelefono;
+
+        /// <summary>
+        /// RevTelefonoformat control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RevTelefonoformat;
 
         /// <summary>
         /// BtnGuardar control.

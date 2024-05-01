@@ -33,7 +33,7 @@ namespace ProjectoProgra5.Pages
             catch (Exception)
             {
 
-                throw;
+                Response.Redirect("~/Pages/Error.aspx");
             }
 
         }
@@ -75,7 +75,7 @@ namespace ProjectoProgra5.Pages
             catch (Exception)
             {
 
-                throw;
+                Response.Redirect("~/Pages/Error.aspx");
             }
         }
         //funcion que redirige a la venta de creacion de productos
