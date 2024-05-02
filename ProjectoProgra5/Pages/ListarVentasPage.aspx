@@ -27,8 +27,8 @@
         <asp:GridView ID="GvListaVentas" runat="server" AutoGenerateColumns="False" CssClass="table-striped" CellPadding="10">
             <Columns>
                 <asp:BoundField DataField="id_venta" HeaderText="Id Venta" ItemStyle-HorizontalAlign="Center" />
-                <asp:BoundField DataField="id_cliente" HeaderText="Id Cliente" ItemStyle-HorizontalAlign="Center" />
                 <asp:BoundField DataField="Fecha" HeaderText="Fecha" />
+                <asp:BoundField DataField="id_cliente" HeaderText="Id Cliente" ItemStyle-HorizontalAlign="Center" />
                 <asp:BoundField DataField="nombre_cliente" HeaderText="Nombre Cliente" />
                 <asp:BoundField DataField="Apellidos" HeaderText="Apellidos" />
                 <asp:BoundField DataField="id_producto" HeaderText="Id Producto" ItemStyle-HorizontalAlign="Center" />
