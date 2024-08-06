@@ -34,7 +34,7 @@ namespace ProjectoProgra5.Pages
             try
             {
                 //llamamos al procedimiento para hacer la insercion en tbl_venta
-                using (ProyectoProgra5Entities db = new ProyectoProgra5Entities())
+                using (ProyectoProgra5Entities1 db = new ProyectoProgra5Entities1())
                 {
                     db.SP_Guardar_Venta(idcliente, Fecha);
                 }
@@ -50,7 +50,7 @@ namespace ProjectoProgra5.Pages
                         idproducto = Convert.ToInt32(fila.Cells[0].Text);
                         TextBox cantidad = (TextBox)fila.FindControl("TxtCantidad");
                         int cantidadcomprada = Convert.ToInt32(cantidad.Text);
-                        using (ProyectoProgra5Entities db = new ProyectoProgra5Entities())
+                        using (ProyectoProgra5Entities1 db = new ProyectoProgra5Entities1())
                         {
                             db.SP_Guardar_Detalles_Venta(idproducto, cantidadcomprada);
                         }
@@ -72,7 +72,7 @@ namespace ProjectoProgra5.Pages
             {
                 var ListaClientes = new List<ListItem>();
 
-                using (ProyectoProgra5Entities db = new ProyectoProgra5Entities())
+                using (ProyectoProgra5Entities1 db = new ProyectoProgra5Entities1())
                 {
                     var query = (from lr in db.SP_Listar_Clientes()
                                  select new ListItem
@@ -104,7 +104,7 @@ namespace ProjectoProgra5.Pages
         {
             try
             {
-                using (ProyectoProgra5Entities db = new ProyectoProgra5Entities())
+                using (ProyectoProgra5Entities1 db = new ProyectoProgra5Entities1())
                 {
                     //llamamos al procedimiento y almacenamos los datos en una variable
                     var Info = db.SP_Listar_Productos().ToList();

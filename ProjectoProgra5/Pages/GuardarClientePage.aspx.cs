@@ -19,7 +19,7 @@ namespace ProjectoProgra5.Pages
         {
             try
             {
-                using (ProyectoProgra5Entities db = new ProyectoProgra5Entities())
+                using (ProyectoProgra5Entities1 db = new ProyectoProgra5Entities1())
                 {
                     //se guarda la informacion del cliente en variables
                     string nombre = TxtNombre.Text;
@@ -33,7 +33,7 @@ namespace ProjectoProgra5.Pages
             }
             catch (Exception)
             {
-
+                throw;
                 Response.Redirect("~/Pages/Error.aspx");
             }
         }

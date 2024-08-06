@@ -21,7 +21,7 @@ namespace ProjectoProgra5.Pages
         {
             try
             {
-                using (ProyectoProgra5Entities db = new ProyectoProgra5Entities())
+                using (ProyectoProgra5Entities1 db = new ProyectoProgra5Entities1())
                 {
                     //llamamos al procedimiento y almacenamos los datos en una variable
                     var Info = db.SP_Listar_Productos().ToList();
@@ -45,7 +45,7 @@ namespace ProjectoProgra5.Pages
             string id = TxtIdProducto.Text;
             try
             {
-                using (ProyectoProgra5Entities db = new ProyectoProgra5Entities())
+                using (ProyectoProgra5Entities1 db = new ProyectoProgra5Entities1())
                 {
                     //evitamos errores al verificar que la variable no se "" si lo es
 

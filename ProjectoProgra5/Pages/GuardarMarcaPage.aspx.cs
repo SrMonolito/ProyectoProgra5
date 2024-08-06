@@ -19,7 +19,7 @@ namespace ProjectoProgra5.Pages
             
             try
             {   //llamamos a la concexion con la base de datos
-                using (ProyectoProgra5Entities db = new ProyectoProgra5Entities())
+                using (ProyectoProgra5Entities1 db = new ProyectoProgra5Entities1())
                 {
                     //guardamos los datos de la marca en una variable
                     string nombre = TxtNombre.Text;

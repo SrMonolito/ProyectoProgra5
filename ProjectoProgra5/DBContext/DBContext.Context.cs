@@ -15,10 +15,10 @@ namespace ProjectoProgra5.DBContext
     using System.Data.Entity.Core.Objects;
     using System.Linq;
     
-    public partial class ProyectoProgra5Entities : DbContext
+    public partial class ProyectoProgra5Entities1 : DbContext
     {
-        public ProyectoProgra5Entities()
-            : base("name=ProyectoProgra5Entities")
+        public ProyectoProgra5Entities1()
+            : base("name=ProyectoProgra5Entities1")
         {
         }
     
@@ -27,6 +27,27 @@ namespace ProjectoProgra5.DBContext
             throw new UnintentionalCodeFirstException();
         }
     
+    
+        public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
+        {
+            var diagramnameParameter = diagramname != null ?
+                new ObjectParameter("diagramname", diagramname) :
+                new ObjectParameter("diagramname", typeof(string));
+    
+            var owner_idParameter = owner_id.HasValue ?
+                new ObjectParameter("owner_id", owner_id) :
+                new ObjectParameter("owner_id", typeof(int));
+    
+            var versionParameter = version.HasValue ?
+                new ObjectParameter("version", version) :
+                new ObjectParameter("version", typeof(int));
+    
+            var definitionParameter = definition != null ?
+                new ObjectParameter("definition", definition) :
+                new ObjectParameter("definition", typeof(byte[]));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_alterdiagram", diagramnameParameter, owner_idParameter, versionParameter, definitionParameter);
+        }
     
         public virtual ObjectResult<SP_Buscar_Cliente_por_Id_Result> SP_Buscar_Cliente_por_Id(Nullable<int> id)
         {
@@ -62,6 +83,49 @@ namespace ProjectoProgra5.DBContext
                 new ObjectParameter("id", typeof(int));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_Buscar_Producto_por_Id_Result>("SP_Buscar_Producto_por_Id", idParameter);
+        }
+    
+        public virtual ObjectResult<SP_Buscar_Venta_por_id_Result> SP_Buscar_Venta_por_id(Nullable<int> id)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("id", id) :
+                new ObjectParameter("id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_Buscar_Venta_por_id_Result>("SP_Buscar_Venta_por_id", idParameter);
+        }
+    
+        public virtual int sp_creatediagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
+        {
+            var diagramnameParameter = diagramname != null ?
+                new ObjectParameter("diagramname", diagramname) :
+                new ObjectParameter("diagramname", typeof(string));
+    
+            var owner_idParameter = owner_id.HasValue ?
+                new ObjectParameter("owner_id", owner_id) :
+                new ObjectParameter("owner_id", typeof(int));
+    
+            var versionParameter = version.HasValue ?
+                new ObjectParameter("version", version) :
+                new ObjectParameter("version", typeof(int));
+    
+            var definitionParameter = definition != null ?
+                new ObjectParameter("definition", definition) :
+                new ObjectParameter("definition", typeof(byte[]));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_creatediagram", diagramnameParameter, owner_idParameter, versionParameter, definitionParameter);
+        }
+    
+        public virtual int sp_dropdiagram(string diagramname, Nullable<int> owner_id)
+        {
+            var diagramnameParameter = diagramname != null ?
+                new ObjectParameter("diagramname", diagramname) :
+                new ObjectParameter("diagramname", typeof(string));
+    
+            var owner_idParameter = owner_id.HasValue ?
+                new ObjectParameter("owner_id", owner_id) :
+                new ObjectParameter("owner_id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_dropdiagram", diagramnameParameter, owner_idParameter);
         }
     
         public virtual int SP_Editar_Cliente(Nullable<int> id, string nombre, string apellidos, Nullable<int> cedula, Nullable<int> telefono)
@@ -156,6 +220,19 @@ namespace ProjectoProgra5.DBContext
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_Guardar_Cliente", nombreParameter, apellidosParameter, cedulaParameter, telefonoParameter);
         }
     
+        public virtual int SP_Guardar_Detalles_Venta(Nullable<int> id_producto, Nullable<int> cantidad_Producto)
+        {
+            var id_productoParameter = id_producto.HasValue ?
+                new ObjectParameter("id_producto", id_producto) :
+                new ObjectParameter("id_producto", typeof(int));
+    
+            var cantidad_ProductoParameter = cantidad_Producto.HasValue ?
+                new ObjectParameter("cantidad_Producto", cantidad_Producto) :
+                new ObjectParameter("cantidad_Producto", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_Guardar_Detalles_Venta", id_productoParameter, cantidad_ProductoParameter);
+        }
+    
         public virtual int SP_Guardar_Marca(string nombre)
         {
             var nombreParameter = nombre != null ?
@@ -203,95 +280,6 @@ namespace ProjectoProgra5.DBContext
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_Guardar_Producto", nombreParameter, precioUnidadParameter, cantidadParameter, marca_idParameter, modelo_idParameter);
         }
     
-        public virtual ObjectResult<SP_Listar_Clientes_Result> SP_Listar_Clientes()
-        {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_Listar_Clientes_Result>("SP_Listar_Clientes");
-        }
-    
-        public virtual ObjectResult<SP_Listar_Ventas_Result1> SP_Listar_Ventas()
-        {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_Listar_Ventas_Result1>("SP_Listar_Ventas");
-        }
-    
-        public virtual ObjectResult<SP_Listar_Productos_Result1> SP_Listar_Productos()
-        {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_Listar_Productos_Result1>("SP_Listar_Productos");
-        }
-    
-        public virtual ObjectResult<SP_Buscar_Venta_por_id_Result1> SP_Buscar_Venta_por_id(Nullable<int> id)
-        {
-            var idParameter = id.HasValue ?
-                new ObjectParameter("id", id) :
-                new ObjectParameter("id", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_Buscar_Venta_por_id_Result1>("SP_Buscar_Venta_por_id", idParameter);
-        }
-    
-        public virtual ObjectResult<SP_Listar_Marcas_Result1> SP_Listar_Marcas()
-        {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_Listar_Marcas_Result1>("SP_Listar_Marcas");
-        }
-    
-        public virtual ObjectResult<SP_Listar_Modelos_Result1> SP_Listar_Modelos()
-        {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_Listar_Modelos_Result1>("SP_Listar_Modelos");
-        }
-    
-        public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
-        {
-            var diagramnameParameter = diagramname != null ?
-                new ObjectParameter("diagramname", diagramname) :
-                new ObjectParameter("diagramname", typeof(string));
-    
-            var owner_idParameter = owner_id.HasValue ?
-                new ObjectParameter("owner_id", owner_id) :
-                new ObjectParameter("owner_id", typeof(int));
-    
-            var versionParameter = version.HasValue ?
-                new ObjectParameter("version", version) :
-                new ObjectParameter("version", typeof(int));
-    
-            var definitionParameter = definition != null ?
-                new ObjectParameter("definition", definition) :
-                new ObjectParameter("definition", typeof(byte[]));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_alterdiagram", diagramnameParameter, owner_idParameter, versionParameter, definitionParameter);
-        }
-    
-        public virtual int sp_creatediagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
-        {
-            var diagramnameParameter = diagramname != null ?
-                new ObjectParameter("diagramname", diagramname) :
-                new ObjectParameter("diagramname", typeof(string));
-    
-            var owner_idParameter = owner_id.HasValue ?
-                new ObjectParameter("owner_id", owner_id) :
-                new ObjectParameter("owner_id", typeof(int));
-    
-            var versionParameter = version.HasValue ?
-                new ObjectParameter("version", version) :
-                new ObjectParameter("version", typeof(int));
-    
-            var definitionParameter = definition != null ?
-                new ObjectParameter("definition", definition) :
-                new ObjectParameter("definition", typeof(byte[]));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_creatediagram", diagramnameParameter, owner_idParameter, versionParameter, definitionParameter);
-        }
-    
-        public virtual int sp_dropdiagram(string diagramname, Nullable<int> owner_id)
-        {
-            var diagramnameParameter = diagramname != null ?
-                new ObjectParameter("diagramname", diagramname) :
-                new ObjectParameter("diagramname", typeof(string));
-    
-            var owner_idParameter = owner_id.HasValue ?
-                new ObjectParameter("owner_id", owner_id) :
-                new ObjectParameter("owner_id", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_dropdiagram", diagramnameParameter, owner_idParameter);
-        }
-    
         public virtual int SP_Guardar_Venta(Nullable<int> id_Cliente, Nullable<System.DateTime> fecha)
         {
             var id_ClienteParameter = id_Cliente.HasValue ?
@@ -331,6 +319,31 @@ namespace ProjectoProgra5.DBContext
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_helpdiagrams_Result>("sp_helpdiagrams", diagramnameParameter, owner_idParameter);
         }
     
+        public virtual ObjectResult<SP_Listar_Clientes_Result> SP_Listar_Clientes()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_Listar_Clientes_Result>("SP_Listar_Clientes");
+        }
+    
+        public virtual ObjectResult<SP_Listar_Marcas_Result> SP_Listar_Marcas()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_Listar_Marcas_Result>("SP_Listar_Marcas");
+        }
+    
+        public virtual ObjectResult<SP_Listar_Modelos_Result> SP_Listar_Modelos()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_Listar_Modelos_Result>("SP_Listar_Modelos");
+        }
+    
+        public virtual ObjectResult<SP_Listar_Productos_Result> SP_Listar_Productos()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_Listar_Productos_Result>("SP_Listar_Productos");
+        }
+    
+        public virtual ObjectResult<SP_Listar_Ventas_Result> SP_Listar_Ventas()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_Listar_Ventas_Result>("SP_Listar_Ventas");
+        }
+    
         public virtual int sp_renamediagram(string diagramname, Nullable<int> owner_id, string new_diagramname)
         {
             var diagramnameParameter = diagramname != null ?
@@ -351,19 +364,6 @@ namespace ProjectoProgra5.DBContext
         public virtual int sp_upgraddiagrams()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_upgraddiagrams");
-        }
-    
-        public virtual int SP_Guardar_Detalles_Venta(Nullable<int> id_producto, Nullable<int> cantidad_Producto)
-        {
-            var id_productoParameter = id_producto.HasValue ?
-                new ObjectParameter("id_producto", id_producto) :
-                new ObjectParameter("id_producto", typeof(int));
-    
-            var cantidad_ProductoParameter = cantidad_Producto.HasValue ?
-                new ObjectParameter("cantidad_Producto", cantidad_Producto) :
-                new ObjectParameter("cantidad_Producto", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_Guardar_Detalles_Venta", id_productoParameter, cantidad_ProductoParameter);
         }
     }
 }

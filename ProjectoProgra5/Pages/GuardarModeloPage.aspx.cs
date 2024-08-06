@@ -28,7 +28,7 @@ namespace ProjectoProgra5.Pages
 
             try
             {
-                using (ProyectoProgra5Entities db = new ProyectoProgra5Entities())
+                using (ProyectoProgra5Entities1 db = new ProyectoProgra5Entities1())
                 {
                     //Pasamos al procedimiento los datos
                     db.SP_Guardar_Modelo(Nombre, Especs);

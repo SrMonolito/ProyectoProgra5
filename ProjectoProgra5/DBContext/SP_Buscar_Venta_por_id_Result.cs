@@ -14,12 +14,12 @@ namespace ProjectoProgra5.DBContext
     public partial class SP_Buscar_Venta_por_id_Result
     {
         public int id_venta { get; set; }
-        public int Identificador_Cliente { get; set; }
+        public int id_cliente { get; set; }
         public Nullable<System.DateTime> Fecha { get; set; }
-        public string Nombre_Cliente { get; set; }
+        public string nombre_cliente { get; set; }
         public string Apellidos { get; set; }
-        public int Identificador_Producto { get; set; }
-        public string Nombre_Producto { get; set; }
-        public int cantidad { get; set; }
+        public int id_producto { get; set; }
+        public string nombre_producto { get; set; }
+        public int Cantidad_Producto { get; set; }
     }
 }

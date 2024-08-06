@@ -23,7 +23,7 @@ namespace ProjectoProgra5.Pages
             int id = Convert.ToInt32(Request.QueryString["id"]);
             try
             {
-                using (ProyectoProgra5Entities db = new ProyectoProgra5Entities())
+                using (ProyectoProgra5Entities1 db = new ProyectoProgra5Entities1())
                 {
                     string nombre = TxtNombre.Text;
                     string apellidos = TxtApellidos.Text;
@@ -48,7 +48,7 @@ namespace ProjectoProgra5.Pages
         {
             try
             {
-                using (ProyectoProgra5Entities db = new ProyectoProgra5Entities())
+                using (ProyectoProgra5Entities1 db = new ProyectoProgra5Entities1())
                 {
                     int id = Convert.ToInt32(Request.QueryString["id"]);
                     var datos = db.SP_Buscar_Cliente_por_Id(id).LastOrDefault();

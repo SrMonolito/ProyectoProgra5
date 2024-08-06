@@ -25,7 +25,7 @@ namespace ProjectoProgra5.Pages
             try
             {
 
-                using (ProyectoProgra5Entities db = new ProyectoProgra5Entities())
+                using (ProyectoProgra5Entities1 db = new ProyectoProgra5Entities1())
                 {
                     //asignacion de las variables
 
@@ -59,7 +59,7 @@ namespace ProjectoProgra5.Pages
 
             try
             {
-                using (ProyectoProgra5Entities db = new ProyectoProgra5Entities())
+                using (ProyectoProgra5Entities1 db = new ProyectoProgra5Entities1())
                 {
                     //llamamos al procedimiento y le pasamos la id del producto
                     var datosProducto = db.SP_Buscar_Producto_por_Id(id).FirstOrDefault();
@@ -67,9 +67,9 @@ namespace ProjectoProgra5.Pages
                     {
                         //aignamos la informacion en los textboxs
                         TxtIdProducto.Text = datosProducto.id.ToString();
-                        TxtProductoNombre.Text = datosProducto.nombre;
+                        TxtProductoNombre.Text = datosProducto.Nombre_Producto;
                         TxtidModelo.Text = datosProducto.Modelo_id.ToString();
-                        TxtCantidad.Text = datosProducto.cantidad.ToString();
+                        TxtCantidad.Text = datosProducto.Cantidad.ToString();
                         TxtPrecioU.Text = datosProducto.PrecioUnidad.ToString();
 
                         //seleccionamos la marca del producto
@@ -94,7 +94,7 @@ namespace ProjectoProgra5.Pages
             {
                 var ListaMarcas = new List<ListItem>();
 
-                using (ProyectoProgra5Entities db = new ProyectoProgra5Entities())
+                using (ProyectoProgra5Entities1 db = new ProyectoProgra5Entities1())
                 {
                     var query = (from lr in db.SP_Listar_Marcas()
                                  select new ListItem

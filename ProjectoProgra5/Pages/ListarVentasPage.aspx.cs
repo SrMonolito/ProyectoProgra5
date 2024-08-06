@@ -21,7 +21,7 @@ namespace ProjectoProgra5.Pages
             string id_venta = TxtIdVenta.Text;
             try
             {
-                using (ProyectoProgra5Entities db = new ProyectoProgra5Entities())
+                using (ProyectoProgra5Entities1 db = new ProyectoProgra5Entities1())
                 {
                     //evitamos errores al verificar que la variable no se "" si lo es
                     
@@ -50,16 +50,14 @@ namespace ProjectoProgra5.Pages
             }
             catch (Exception)
             {
-
-                Response.Redirect("~/Pages/Error.aspx");
+                throw;
             }
         }
         //Funcion para cargar la informacion de las ventas en el gridview
         private void CargarInfoVentas()
         {
-            try
-            {
-                using (ProyectoProgra5Entities db = new ProyectoProgra5Entities())
+            try { 
+                using (ProyectoProgra5Entities1 db = new ProyectoProgra5Entities1())
                 {
                     var Info = db.SP_Listar_Ventas().ToList();
 
@@ -69,8 +67,7 @@ namespace ProjectoProgra5.Pages
             }
             catch (Exception)
             {
-
-                Response.Redirect("~/Pages/Error.aspx");
+                throw;
             }
         }
 

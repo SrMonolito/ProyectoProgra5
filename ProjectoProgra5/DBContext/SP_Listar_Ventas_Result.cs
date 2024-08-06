@@ -20,6 +20,6 @@ namespace ProjectoProgra5.DBContext
         public string Apellidos { get; set; }
         public int id_producto { get; set; }
         public string nombre_producto { get; set; }
-        public int cantidad { get; set; }
+        public int Cantidad_Producto { get; set; }
     }
 }

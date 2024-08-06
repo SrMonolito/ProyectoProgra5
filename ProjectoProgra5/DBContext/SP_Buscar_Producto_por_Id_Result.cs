@@ -14,10 +14,12 @@ namespace ProjectoProgra5.DBContext
     public partial class SP_Buscar_Producto_por_Id_Result
     {
         public int id { get; set; }
-        public string nombre { get; set; }
+        public string Nombre_Producto { get; set; }
         public int PrecioUnidad { get; set; }
-        public int cantidad { get; set; }
+        public int Cantidad { get; set; }
         public int Marca_id { get; set; }
         public int Modelo_id { get; set; }
+        public string Nombre_Marca { get; set; }
+        public string Nombre_Modelo { get; set; }
     }
 }

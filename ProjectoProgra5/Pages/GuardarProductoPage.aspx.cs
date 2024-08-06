@@ -28,7 +28,7 @@ namespace ProjectoProgra5.Pages
             try
             {
                 
-                using (ProyectoProgra5Entities db = new ProyectoProgra5Entities())
+                using (ProyectoProgra5Entities1 db = new ProyectoProgra5Entities1())
                 {
                     //asignacion de las variables
                     string nombre = TxtProductoNombre.Text;
@@ -56,7 +56,7 @@ namespace ProjectoProgra5.Pages
             {
                 var ListaMarcas = new List<ListItem>();
 
-                using (ProyectoProgra5Entities db = new ProyectoProgra5Entities())
+                using (ProyectoProgra5Entities1 db = new ProyectoProgra5Entities1())
                 {
                     var query = (from lr in db.SP_Listar_Marcas()
                                  select new ListItem

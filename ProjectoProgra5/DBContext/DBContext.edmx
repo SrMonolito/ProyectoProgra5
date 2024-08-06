@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="ProyectoProgra5Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="ProyectoProgra5Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
         <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
@@ -105,22 +105,42 @@
         </Function>
         <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="ProyectoProgra5ModelStoreContainer" />
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="ProyectoProgra5Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityContainer Name="ProyectoProgra5Entities" annotation:LazyLoadingEnabled="true" >
+        <EntityContainer Name="ProyectoProgra5Entities1" annotation:LazyLoadingEnabled="true" >
+          <FunctionImport Name="sp_alterdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
           <FunctionImport Name="SP_Buscar_Cliente_por_Id" ReturnType="Collection(ProyectoProgra5Model.SP_Buscar_Cliente_por_Id_Result)">
-          <Parameter Name="id" Mode="In" Type="Int32" />
+            <Parameter Name="id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="SP_Buscar_Marca_por_id" ReturnType="Collection(ProyectoProgra5Model.SP_Buscar_Marca_por_id_Result)">
-          <Parameter Name="id" Mode="In" Type="Int32" />
+            <Parameter Name="id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="SP_Buscar_Modelo_por_id" ReturnType="Collection(ProyectoProgra5Model.SP_Buscar_Modelo_por_id_Result)">
-          <Parameter Name="id" Mode="In" Type="Int32" />
+            <Parameter Name="id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="SP_Buscar_Producto_por_Id" ReturnType="Collection(ProyectoProgra5Model.SP_Buscar_Producto_por_Id_Result)">
-          <Parameter Name="id" Mode="In" Type="Int32" />
+            <Parameter Name="id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SP_Buscar_Venta_por_id" ReturnType="Collection(ProyectoProgra5Model.SP_Buscar_Venta_por_id_Result)">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_creatediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_dropdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="SP_Editar_Cliente">
             <Parameter Name="id" Mode="In" Type="Int32" />
@@ -148,8 +168,12 @@
             <Parameter Name="Cedula" Mode="In" Type="Int32" />
             <Parameter Name="Telefono" Mode="In" Type="Int32" />
           </FunctionImport>
+          <FunctionImport Name="SP_Guardar_Detalles_Venta">
+            <Parameter Name="id_producto" Mode="In" Type="Int32" />
+            <Parameter Name="cantidad_Producto" Mode="In" Type="Int32" />
+          </FunctionImport>
           <FunctionImport Name="SP_Guardar_Marca">
-          <Parameter Name="Nombre" Mode="In" Type="String" />
+            <Parameter Name="Nombre" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="SP_Guardar_Modelo">
             <Parameter Name="Nombre" Mode="In" Type="String" />
@@ -161,30 +185,6 @@
             <Parameter Name="Cantidad" Mode="In" Type="Int32" />
             <Parameter Name="Marca_id" Mode="In" Type="Int32" />
             <Parameter Name="Modelo_id" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="SP_Listar_Clientes" ReturnType="Collection(ProyectoProgra5Model.SP_Listar_Clientes_Result)" />
-          <FunctionImport Name="SP_Listar_Ventas" ReturnType="Collection(ProyectoProgra5Model.SP_Listar_Ventas_Result1)" />
-          <FunctionImport Name="SP_Listar_Productos" ReturnType="Collection(ProyectoProgra5Model.SP_Listar_Productos_Result1)" />
-          <FunctionImport Name="SP_Buscar_Venta_por_id" ReturnType="Collection(ProyectoProgra5Model.SP_Buscar_Venta_por_id_Result1)">
-          <Parameter Name="id" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="SP_Listar_Marcas" ReturnType="Collection(ProyectoProgra5Model.SP_Listar_Marcas_Result1)" />
-          <FunctionImport Name="SP_Listar_Modelos" ReturnType="Collection(ProyectoProgra5Model.SP_Listar_Modelos_Result1)" />
-          <FunctionImport Name="sp_alterdiagram">
-            <Parameter Name="diagramname" Mode="In" Type="String" />
-            <Parameter Name="owner_id" Mode="In" Type="Int32" />
-            <Parameter Name="version" Mode="In" Type="Int32" />
-            <Parameter Name="definition" Mode="In" Type="Binary" />
-          </FunctionImport>
-          <FunctionImport Name="sp_creatediagram">
-            <Parameter Name="diagramname" Mode="In" Type="String" />
-            <Parameter Name="owner_id" Mode="In" Type="Int32" />
-            <Parameter Name="version" Mode="In" Type="Int32" />
-            <Parameter Name="definition" Mode="In" Type="Binary" />
-          </FunctionImport>
-          <FunctionImport Name="sp_dropdiagram">
-            <Parameter Name="diagramname" Mode="In" Type="String" />
-            <Parameter Name="owner_id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="SP_Guardar_Venta">
             <Parameter Name="id_Cliente" Mode="In" Type="Int32" />
@@ -198,16 +198,17 @@
             <Parameter Name="diagramname" Mode="In" Type="String" />
             <Parameter Name="owner_id" Mode="In" Type="Int32" />
           </FunctionImport>
+          <FunctionImport Name="SP_Listar_Clientes" ReturnType="Collection(ProyectoProgra5Model.SP_Listar_Clientes_Result)" />
+          <FunctionImport Name="SP_Listar_Marcas" ReturnType="Collection(ProyectoProgra5Model.SP_Listar_Marcas_Result)" />
+          <FunctionImport Name="SP_Listar_Modelos" ReturnType="Collection(ProyectoProgra5Model.SP_Listar_Modelos_Result)" />
+          <FunctionImport Name="SP_Listar_Productos" ReturnType="Collection(ProyectoProgra5Model.SP_Listar_Productos_Result)" />
+          <FunctionImport Name="SP_Listar_Ventas" ReturnType="Collection(ProyectoProgra5Model.SP_Listar_Ventas_Result)" />
           <FunctionImport Name="sp_renamediagram">
             <Parameter Name="diagramname" Mode="In" Type="String" />
             <Parameter Name="owner_id" Mode="In" Type="Int32" />
             <Parameter Name="new_diagramname" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="sp_upgraddiagrams" />
-          <FunctionImport Name="SP_Guardar_Detalles_Venta">
-            <Parameter Name="id_producto" Mode="In" Type="Int32" />
-            <Parameter Name="cantidad_Producto" Mode="In" Type="Int32" />
-          </FunctionImport>
         </EntityContainer>
         <ComplexType Name="SP_Buscar_Cliente_por_Id_Result">
           <Property Type="Int32" Name="id" Nullable="false" />
@@ -227,21 +228,34 @@
         </ComplexType>
         <ComplexType Name="SP_Buscar_Producto_por_Id_Result">
           <Property Type="Int32" Name="id" Nullable="false" />
-          <Property Type="String" Name="nombre" Nullable="false" MaxLength="75" />
+          <Property Type="String" Name="Nombre_Producto" Nullable="false" MaxLength="75" />
           <Property Type="Int32" Name="PrecioUnidad" Nullable="false" />
-          <Property Type="Int32" Name="cantidad" Nullable="false" />
+          <Property Type="Int32" Name="Cantidad" Nullable="false" />
           <Property Type="Int32" Name="Marca_id" Nullable="false" />
           <Property Type="Int32" Name="Modelo_id" Nullable="false" />
+          <Property Type="String" Name="Nombre_Marca" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="Nombre_Modelo" Nullable="false" MaxLength="50" />
         </ComplexType>
         <ComplexType Name="SP_Buscar_Venta_por_id_Result">
           <Property Type="Int32" Name="id_venta" Nullable="false" />
-          <Property Type="Int32" Name="Identificador_Cliente" Nullable="false" />
+          <Property Type="Int32" Name="id_cliente" Nullable="false" />
           <Property Type="DateTime" Name="Fecha" Nullable="true" />
-          <Property Type="String" Name="Nombre_Cliente" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="nombre_cliente" Nullable="false" MaxLength="50" />
           <Property Type="String" Name="Apellidos" Nullable="false" MaxLength="50" />
-          <Property Type="Int32" Name="Identificador_Producto" Nullable="false" />
-          <Property Type="String" Name="Nombre_Producto" Nullable="false" MaxLength="75" />
-          <Property Type="Int32" Name="cantidad" Nullable="false" />
+          <Property Type="Int32" Name="id_producto" Nullable="false" />
+          <Property Type="String" Name="nombre_producto" Nullable="false" MaxLength="75" />
+          <Property Type="Int32" Name="Cantidad_Producto" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="sp_helpdiagramdefinition_Result">
+          <Property Type="Int32" Name="version" Nullable="true" />
+          <Property Type="Binary" Name="definition" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_helpdiagrams_Result">
+          <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+          <Property Type="Int32" Name="OwnerID" Nullable="false" />
         </ComplexType>
         <ComplexType Name="SP_Listar_Clientes_Result">
           <Property Type="Int32" Name="id" Nullable="false" />
@@ -260,37 +274,6 @@
           <Property Type="String" Name="Especificaciones" Nullable="false" MaxLength="Max" />
         </ComplexType>
         <ComplexType Name="SP_Listar_Productos_Result">
-          <Property Type="Int32" Name="id_venta" Nullable="false" />
-          <Property Type="DateTime" Name="Fecha" Nullable="true" />
-          <Property Type="Int32" Name="Identificador_Cliente" Nullable="false" />
-          <Property Type="String" Name="Nombre_Cliente" Nullable="false" MaxLength="50" />
-          <Property Type="String" Name="Apellidos" Nullable="false" MaxLength="50" />
-          <Property Type="Int32" Name="Identificador_Producto" Nullable="false" />
-          <Property Type="String" Name="Nombre_Producto" Nullable="false" MaxLength="75" />
-          <Property Type="String" Name="Modelo" Nullable="false" MaxLength="50" />
-          <Property Type="Int32" Name="Cantidad" Nullable="false" />
-        </ComplexType>
-        <ComplexType Name="SP_Listar_Ventas_Result">
-          <Property Type="Int32" Name="id_venta" Nullable="false" />
-          <Property Type="Int32" Name="id_cliente" Nullable="false" />
-          <Property Type="DateTime" Name="Fecha" Nullable="true" />
-          <Property Type="String" Name="nombre_cliente" Nullable="false" MaxLength="50" />
-          <Property Type="String" Name="Apellidos" Nullable="false" MaxLength="50" />
-          <Property Type="Int32" Name="id_producto" Nullable="false" />
-          <Property Type="String" Name="nombre_producto" Nullable="false" MaxLength="75" />
-          <Property Type="Int32" Name="cantidad" Nullable="false" />
-        </ComplexType>
-        <ComplexType Name="SP_Listar_Ventas_Result1">
-          <Property Type="Int32" Name="id_venta" Nullable="false" />
-          <Property Type="Int32" Name="id_cliente" Nullable="false" />
-          <Property Type="DateTime" Name="Fecha" Nullable="true" />
-          <Property Type="String" Name="nombre_cliente" Nullable="false" MaxLength="50" />
-          <Property Type="String" Name="Apellidos" Nullable="false" MaxLength="50" />
-          <Property Type="Int32" Name="id_producto" Nullable="false" />
-          <Property Type="String" Name="nombre_producto" Nullable="false" MaxLength="75" />
-          <Property Type="Int32" Name="Cantidad_Producto" Nullable="false" />
-        </ComplexType>
-        <ComplexType Name="SP_Listar_Productos_Result1">
           <Property Type="Int32" Name="id" Nullable="false" />
           <Property Type="String" Name="Nombre_Producto" Nullable="false" MaxLength="75" />
           <Property Type="Int32" Name="PrecioUnidad" Nullable="false" />
@@ -300,7 +283,7 @@
           <Property Type="String" Name="Nombre_Marca" Nullable="false" MaxLength="100" />
           <Property Type="String" Name="Nombre_Modelo" Nullable="false" MaxLength="50" />
         </ComplexType>
-        <ComplexType Name="SP_Buscar_Venta_por_id_Result1">
+        <ComplexType Name="SP_Listar_Ventas_Result">
           <Property Type="Int32" Name="id_venta" Nullable="false" />
           <Property Type="Int32" Name="id_cliente" Nullable="false" />
           <Property Type="DateTime" Name="Fecha" Nullable="true" />
@@ -310,32 +293,13 @@
           <Property Type="String" Name="nombre_producto" Nullable="false" MaxLength="75" />
           <Property Type="Int32" Name="Cantidad_Producto" Nullable="false" />
         </ComplexType>
-        <ComplexType Name="SP_Listar_Marcas_Result1">
-          <Property Type="Int32" Name="id" Nullable="false" />
-          <Property Type="String" Name="nombre" Nullable="false" MaxLength="100" />
-        </ComplexType>
-        <ComplexType Name="SP_Listar_Modelos_Result1">
-          <Property Type="Int32" Name="id" Nullable="false" />
-          <Property Type="String" Name="Nombre" Nullable="false" MaxLength="50" />
-          <Property Type="String" Name="Especificaciones" Nullable="false" MaxLength="Max" />
-        </ComplexType>
-        <ComplexType Name="sp_helpdiagramdefinition_Result">
-          <Property Type="Int32" Name="version" Nullable="true" />
-          <Property Type="Binary" Name="definition" Nullable="true" />
-        </ComplexType>
-        <ComplexType Name="sp_helpdiagrams_Result">
-          <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
-          <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
-          <Property Type="Int32" Name="ID" Nullable="false" />
-          <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
-          <Property Type="Int32" Name="OwnerID" Nullable="false" />
-        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="ProyectoProgra5ModelStoreContainer" CdmEntityContainer="ProyectoProgra5Entities" >
+        <EntityContainerMapping StorageEntityContainer="ProyectoProgra5ModelStoreContainer" CdmEntityContainer="ProyectoProgra5Entities1" >
+          <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="ProyectoProgra5Model.Store.sp_alterdiagram" />
           <FunctionImportMapping FunctionImportName="SP_Buscar_Cliente_por_Id" FunctionName="ProyectoProgra5Model.Store.SP_Buscar_Cliente_por_Id">
             <ResultMapping>
               <ComplexTypeMapping TypeName="ProyectoProgra5Model.SP_Buscar_Cliente_por_Id_Result">
@@ -368,50 +332,6 @@
             <ResultMapping>
               <ComplexTypeMapping TypeName="ProyectoProgra5Model.SP_Buscar_Producto_por_Id_Result">
                 <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="nombre" ColumnName="nombre" />
-                <ScalarProperty Name="PrecioUnidad" ColumnName="PrecioUnidad" />
-                <ScalarProperty Name="cantidad" ColumnName="cantidad" />
-                <ScalarProperty Name="Marca_id" ColumnName="Marca_id" />
-                <ScalarProperty Name="Modelo_id" ColumnName="Modelo_id" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="SP_Editar_Cliente" FunctionName="ProyectoProgra5Model.Store.SP_Editar_Cliente" />
-          <FunctionImportMapping FunctionImportName="SP_Editar_Modelo" FunctionName="ProyectoProgra5Model.Store.SP_Editar_Modelo" />
-          <FunctionImportMapping FunctionImportName="SP_Editar_Producto" FunctionName="ProyectoProgra5Model.Store.SP_Editar_Producto" />
-          <FunctionImportMapping FunctionImportName="SP_Guardar_Cliente" FunctionName="ProyectoProgra5Model.Store.SP_Guardar_Cliente" />
-          <FunctionImportMapping FunctionImportName="SP_Guardar_Marca" FunctionName="ProyectoProgra5Model.Store.SP_Guardar_Marca" />
-          <FunctionImportMapping FunctionImportName="SP_Guardar_Modelo" FunctionName="ProyectoProgra5Model.Store.SP_Guardar_Modelo" />
-          <FunctionImportMapping FunctionImportName="SP_Guardar_Producto" FunctionName="ProyectoProgra5Model.Store.SP_Guardar_Producto" />
-          <FunctionImportMapping FunctionImportName="SP_Listar_Clientes" FunctionName="ProyectoProgra5Model.Store.SP_Listar_Clientes">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="ProyectoProgra5Model.SP_Listar_Clientes_Result">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-                <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
-                <ScalarProperty Name="Cedula" ColumnName="Cedula" />
-                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="SP_Listar_Ventas" FunctionName="ProyectoProgra5Model.Store.SP_Listar_Ventas">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="ProyectoProgra5Model.SP_Listar_Ventas_Result1">
-                <ScalarProperty Name="id_venta" ColumnName="id_venta" />
-                <ScalarProperty Name="id_cliente" ColumnName="id_cliente" />
-                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
-                <ScalarProperty Name="nombre_cliente" ColumnName="nombre_cliente" />
-                <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
-                <ScalarProperty Name="id_producto" ColumnName="id_producto" />
-                <ScalarProperty Name="nombre_producto" ColumnName="nombre_producto" />
-                <ScalarProperty Name="Cantidad_Producto" ColumnName="Cantidad_Producto" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="SP_Listar_Productos" FunctionName="ProyectoProgra5Model.Store.SP_Listar_Productos">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="ProyectoProgra5Model.SP_Listar_Productos_Result1">
-                <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="Nombre_Producto" ColumnName="Nombre_Producto" />
                 <ScalarProperty Name="PrecioUnidad" ColumnName="PrecioUnidad" />
                 <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
@@ -424,7 +344,7 @@
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="SP_Buscar_Venta_por_id" FunctionName="ProyectoProgra5Model.Store.SP_Buscar_Venta_por_id">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="ProyectoProgra5Model.SP_Buscar_Venta_por_id_Result1">
+              <ComplexTypeMapping TypeName="ProyectoProgra5Model.SP_Buscar_Venta_por_id_Result">
                 <ScalarProperty Name="id_venta" ColumnName="id_venta" />
                 <ScalarProperty Name="id_cliente" ColumnName="id_cliente" />
                 <ScalarProperty Name="Fecha" ColumnName="Fecha" />
@@ -436,26 +356,16 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="SP_Listar_Marcas" FunctionName="ProyectoProgra5Model.Store.SP_Listar_Marcas">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="ProyectoProgra5Model.SP_Listar_Marcas_Result1">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="nombre" ColumnName="nombre" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="SP_Listar_Modelos" FunctionName="ProyectoProgra5Model.Store.SP_Listar_Modelos">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="ProyectoProgra5Model.SP_Listar_Modelos_Result1">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-                <ScalarProperty Name="Especificaciones" ColumnName="Especificaciones" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="ProyectoProgra5Model.Store.sp_alterdiagram" />
           <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="ProyectoProgra5Model.Store.sp_creatediagram" />
           <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="ProyectoProgra5Model.Store.sp_dropdiagram" />
+          <FunctionImportMapping FunctionImportName="SP_Editar_Cliente" FunctionName="ProyectoProgra5Model.Store.SP_Editar_Cliente" />
+          <FunctionImportMapping FunctionImportName="SP_Editar_Modelo" FunctionName="ProyectoProgra5Model.Store.SP_Editar_Modelo" />
+          <FunctionImportMapping FunctionImportName="SP_Editar_Producto" FunctionName="ProyectoProgra5Model.Store.SP_Editar_Producto" />
+          <FunctionImportMapping FunctionImportName="SP_Guardar_Cliente" FunctionName="ProyectoProgra5Model.Store.SP_Guardar_Cliente" />
+          <FunctionImportMapping FunctionImportName="SP_Guardar_Detalles_Venta" FunctionName="ProyectoProgra5Model.Store.SP_Guardar_Detalles_Venta" />
+          <FunctionImportMapping FunctionImportName="SP_Guardar_Marca" FunctionName="ProyectoProgra5Model.Store.SP_Guardar_Marca" />
+          <FunctionImportMapping FunctionImportName="SP_Guardar_Modelo" FunctionName="ProyectoProgra5Model.Store.SP_Guardar_Modelo" />
+          <FunctionImportMapping FunctionImportName="SP_Guardar_Producto" FunctionName="ProyectoProgra5Model.Store.SP_Guardar_Producto" />
           <FunctionImportMapping FunctionImportName="SP_Guardar_Venta" FunctionName="ProyectoProgra5Model.Store.SP_Guardar_Venta" />
           <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="ProyectoProgra5Model.Store.sp_helpdiagramdefinition">
             <ResultMapping>
@@ -476,9 +386,64 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_Listar_Clientes" FunctionName="ProyectoProgra5Model.Store.SP_Listar_Clientes">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ProyectoProgra5Model.SP_Listar_Clientes_Result">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+                <ScalarProperty Name="Cedula" ColumnName="Cedula" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_Listar_Marcas" FunctionName="ProyectoProgra5Model.Store.SP_Listar_Marcas">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ProyectoProgra5Model.SP_Listar_Marcas_Result">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_Listar_Modelos" FunctionName="ProyectoProgra5Model.Store.SP_Listar_Modelos">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ProyectoProgra5Model.SP_Listar_Modelos_Result">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Especificaciones" ColumnName="Especificaciones" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_Listar_Productos" FunctionName="ProyectoProgra5Model.Store.SP_Listar_Productos">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ProyectoProgra5Model.SP_Listar_Productos_Result">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Nombre_Producto" ColumnName="Nombre_Producto" />
+                <ScalarProperty Name="PrecioUnidad" ColumnName="PrecioUnidad" />
+                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+                <ScalarProperty Name="Marca_id" ColumnName="Marca_id" />
+                <ScalarProperty Name="Modelo_id" ColumnName="Modelo_id" />
+                <ScalarProperty Name="Nombre_Marca" ColumnName="Nombre_Marca" />
+                <ScalarProperty Name="Nombre_Modelo" ColumnName="Nombre_Modelo" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_Listar_Ventas" FunctionName="ProyectoProgra5Model.Store.SP_Listar_Ventas">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ProyectoProgra5Model.SP_Listar_Ventas_Result">
+                <ScalarProperty Name="id_venta" ColumnName="id_venta" />
+                <ScalarProperty Name="id_cliente" ColumnName="id_cliente" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="nombre_cliente" ColumnName="nombre_cliente" />
+                <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+                <ScalarProperty Name="id_producto" ColumnName="id_producto" />
+                <ScalarProperty Name="nombre_producto" ColumnName="nombre_producto" />
+                <ScalarProperty Name="Cantidad_Producto" ColumnName="Cantidad_Producto" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="ProyectoProgra5Model.Store.sp_renamediagram" />
           <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="ProyectoProgra5Model.Store.sp_upgraddiagrams" />
-          <FunctionImportMapping FunctionImportName="SP_Guardar_Detalles_Venta" FunctionName="ProyectoProgra5Model.Store.SP_Guardar_Detalles_Venta" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

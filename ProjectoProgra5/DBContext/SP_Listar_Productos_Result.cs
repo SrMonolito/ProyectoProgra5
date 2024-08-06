@@ -13,14 +13,13 @@ namespace ProjectoProgra5.DBContext
     
     public partial class SP_Listar_Productos_Result
     {
-        public int id_venta { get; set; }
-        public Nullable<System.DateTime> Fecha { get; set; }
-        public int Identificador_Cliente { get; set; }
-        public string Nombre_Cliente { get; set; }
-        public string Apellidos { get; set; }
-        public int Identificador_Producto { get; set; }
+        public int id { get; set; }
         public string Nombre_Producto { get; set; }
-        public string Modelo { get; set; }
+        public int PrecioUnidad { get; set; }
         public int Cantidad { get; set; }
+        public int Marca_id { get; set; }
+        public int Modelo_id { get; set; }
+        public string Nombre_Marca { get; set; }
+        public string Nombre_Modelo { get; set; }
     }
 }
