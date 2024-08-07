@@ -36,13 +36,13 @@ namespace ProjectoProgra5.Pages
 
                     db.SP_Editar_Modelo(id, nombre, especs);
                 }
-                Response.Redirect("~/Pages/ExitoPage.aspx");
             }
             catch (Exception)
             {
 
                 Response.Redirect("~/Pages/Error.aspx");
             }
+            Response.Redirect("~/Pages/ExitoPage.aspx");
         }
         //Funcion para cargar la informacion del modelo
         private void CargarInfoModelo()

@@ -38,7 +38,6 @@ namespace ProjectoProgra5.Pages
                     int PrecioUnidad = Convert.ToInt32(TxtPrecioU.Text);
                     //llamada del procedimiento y envio de los datos almacenados en las variables
                     db.SP_Guardar_Producto(nombre, PrecioUnidad, Cantidad, idMarca, idModelo);
-                    Response.Redirect("~/Pages/ExitoPage.aspx");
                 }
             }
             catch (Exception)
@@ -46,7 +45,7 @@ namespace ProjectoProgra5.Pages
 
                 throw;
             }
-            
+            Response.Redirect("~/Pages/ExitoPage.aspx");
         }
 
         //funcion para cargar las marcas del drop down list

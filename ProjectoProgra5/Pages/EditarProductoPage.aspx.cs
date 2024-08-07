@@ -37,7 +37,6 @@ namespace ProjectoProgra5.Pages
                     int PrecioUnidad = Convert.ToInt32(TxtPrecioU.Text);
                     //llamada del procedimiento y envio de los datos almacenados en las variables
                     db.SP_Editar_Producto(id,nombre, PrecioUnidad, Cantidad, idMarca, idModelo);
-                    Response.Redirect("~/Pages/ExitoPage.aspx");
                 }
             }
             catch (Exception)
@@ -45,6 +44,7 @@ namespace ProjectoProgra5.Pages
 
                 Response.Redirect("~/Pages/Error.aspx");
             }
+            Response.Redirect("~/Pages/ExitoPage.aspx");
         }
 
         protected void BtnCancelar_Click(object sender, EventArgs e)

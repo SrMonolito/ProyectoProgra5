@@ -56,7 +56,6 @@ namespace ProjectoProgra5.Pages
                         }
                     }
                 }
-                Response.Redirect("~/Pages/ExitoPage.aspx");
 
             }
             catch (Exception)
@@ -64,6 +63,7 @@ namespace ProjectoProgra5.Pages
 
                 Response.Redirect("~/Pages/Error.aspx");
             }
+            Response.Redirect("~/Pages/ExitoPage.aspx");
         }
         //Funcion para cargar los Clientes en el DropdownList
         private void CargarClientesDdl()

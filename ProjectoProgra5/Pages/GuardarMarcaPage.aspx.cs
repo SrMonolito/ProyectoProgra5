@@ -26,13 +26,13 @@ namespace ProjectoProgra5.Pages
                     //pasamos los datos mediante 
                     db.SP_Guardar_Marca(nombre);
                 }
-                Response.Redirect("~/Pages/ExitoPage.aspx");
             }
             catch (Exception)
             {
 
                 Response.Redirect("~/Pages/Error.aspx");
             }
+            Response.Redirect("~/Pages/ExitoPage.aspx");
         }
 
         protected void BtnCancelar_Click(object sender, EventArgs e)

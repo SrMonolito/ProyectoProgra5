@@ -29,13 +29,12 @@ namespace ProjectoProgra5.Pages
                     //se llama al procedimiento de la base de datos y le se pasa las variables con la informacion
                     db.SP_Guardar_Cliente(nombre,apellidos,cedula,Telefono);
                 }
-                Response.Redirect("~/Pages/ExitoPage.aspx");
             }
             catch (Exception)
             {
-                throw;
                 Response.Redirect("~/Pages/Error.aspx");
             }
+            Response.Redirect("~/Pages/ExitoPage.aspx");
         }
 
         protected void BtnCancelar_Click(object sender, EventArgs e)
