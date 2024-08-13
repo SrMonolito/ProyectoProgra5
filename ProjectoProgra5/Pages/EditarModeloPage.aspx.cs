@@ -39,7 +39,6 @@ namespace ProjectoProgra5.Pages
             }
             catch (Exception)
             {
-
                 Response.Redirect("~/Pages/Error.aspx");
             }
             Response.Redirect("~/Pages/ExitoPage.aspx");

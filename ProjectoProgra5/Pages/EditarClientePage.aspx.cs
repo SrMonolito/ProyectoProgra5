@@ -37,9 +37,8 @@ namespace ProjectoProgra5.Pages
             {
                 Response.Redirect("~/Pages/Error.aspx");
             }
-            
-                Response.Redirect("~/Pages/ExitoPage.aspx");
-            
+            Response.Redirect("~/Pages/ExitoPage.aspx");
+
         }
 
         protected void BtnCancelar_Click(object sender, EventArgs e)

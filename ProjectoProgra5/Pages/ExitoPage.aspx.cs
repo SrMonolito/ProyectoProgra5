@@ -16,7 +16,10 @@ namespace ProjectoProgra5.Pages
 
         protected void BtnVolver_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/");
+            
+                Response.Redirect("~/");
+            
+            
         }
     }
 }

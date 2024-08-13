@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="EditarModeloPage.aspx.cs" Inherits="ProjectoProgra5.Pages.EditarModeloPage" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <h2>Registrar Modelo</h2>
+    <h2>Editar Modelo</h2>
 
     <div>
         <span>Identificador del Modelo</span>

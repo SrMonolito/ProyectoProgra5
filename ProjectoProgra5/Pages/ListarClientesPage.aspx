@@ -5,7 +5,7 @@
 
 
 
-    <h2>Lista de Modelos</h2>
+    <h2>Lista de Clientes</h2>
 
     <div>
         <span>Buscar por id</span>
